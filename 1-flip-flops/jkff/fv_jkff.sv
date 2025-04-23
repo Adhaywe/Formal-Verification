@@ -1,7 +1,3 @@
-// -------------------------------------------------
-// Copyright(c) LUBIS EDA GmbH, All rights reserved
-// Contact: contact@lubis-eda.com
-// -------------------------------------------------
 
 `default_nettype none
 
@@ -26,16 +22,16 @@ module fv_jkff (
     // Definition of your properties and their assertion
     property p1; //if j = 1 && k = 0 then after 1 clock cycle q = 1 
         j &&
-        !k 
+        ~ k 
     |-> 
         ##1 q
     ;endproperty
 
     property p2; //if k = 1 && j ==0 then after 1 clock cycle q = 0 
         k && 
-        !j  
+        ~ j  
     |-> 
-        ##1 !q
+        ##1 ~ q
     ;endproperty
  
     property p3; //if j =1 && k = 1 then after 1 clock cycle q toggles to the opposite value 
@@ -46,8 +42,8 @@ module fv_jkff (
     ;endproperty
 
     property p4; //if !j && !k then after 1 clock cycle q doesn't change its value 
-        !j &&
-        !k 
+        ~ j &&
+        ~ k 
     |-> 
         ##1 q == $past(q)
     ;endproperty

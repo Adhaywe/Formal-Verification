@@ -1,7 +1,3 @@
-// -------------------------------------------------
-// Copyright(c) LUBIS EDA GmbH, All rights reserved
-// Contact: contact@lubis-eda.com
-// -------------------------------------------------
 
 `default_nettype none
 
